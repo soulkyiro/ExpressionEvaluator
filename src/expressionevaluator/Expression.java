@@ -1,14 +1,6 @@
 package expressionevaluator;
 
-public class Expression {
+public interface Expression {
 
-    private String expression;
-    
-    public Expression(String expression) {
-        this.expression=expression;
-    }
-    
-    public int valueExpression(){
-        return 0;
-    }
+    public Object evaluator();
 }
