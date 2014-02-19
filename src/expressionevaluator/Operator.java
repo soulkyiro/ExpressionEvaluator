@@ -1,10 +1,14 @@
 package expressionevaluator;
 
 public class Operator implements Expression{
+    private String operator;
 
+    public Operator(String operator) {
+        this.operator = operator;
+    }
     @Override
     public String evaluator() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "add";
     }
 
 
