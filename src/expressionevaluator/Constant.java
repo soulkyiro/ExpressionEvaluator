@@ -1,7 +1,7 @@
 package expressionevaluator;
 
 public class Constant implements Expression{
-    private Object constant;
+    private final Object constant;
 
     public Constant(Object constant) {
         this.constant = constant;
