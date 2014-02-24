@@ -24,4 +24,15 @@ public class ExpressionEvaluatorTest {
         Assert.assertEquals(20.4, new Operation(new BinaryOperation ( new Constant(5.4), new Constant(15))).addOperation());
         Assert.assertEquals(220.9, new Operation(new BinaryOperation ( new Constant(220.9), new Constant(0))).addOperation());
     }
+    @Test
+    public void addIntegerDoubleExpressionTest() {
+        Assert.assertEquals(4.2, new Operation(new BinaryOperation ( new Constant(2), new Constant(2.2))).addOperation());
+        Assert.assertEquals(20.4, new Operation(new BinaryOperation ( new Constant(15), new Constant(5.4))).addOperation());
+        Assert.assertEquals(220.9, new Operation(new BinaryOperation ( new Constant(0), new Constant(220.9))).addOperation());
+    }
+    @Test
+    public void addDoubleDoubleExpressionTest() {
+        Assert.assertEquals(5.0, new Operation(new BinaryOperation ( new Constant(2.2), new Constant(2.8))).addOperation());
+        Assert.assertEquals(21.0, new Operation(new BinaryOperation ( new Constant(5.4), new Constant(15.6))).addOperation());
+    }
 }
