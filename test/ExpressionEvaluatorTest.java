@@ -16,7 +16,6 @@ public class ExpressionEvaluatorTest {
     @Test
     public void addIntegerIntegerExpressionTest() {
         Assert.assertEquals(4, new Operation("add", new BinaryOperation(new Constant(2), new Constant(2))).evaluator());
-        Assert.assertEquals(4, new Operation("add",new BinaryOperation(new Constant(2), new Constant(2))).evaluator());
         Assert.assertEquals(20, new Operation("add",new BinaryOperation(new Constant(5), new Constant(15))).evaluator());
         Assert.assertEquals(220, new Operation("add",new BinaryOperation(new Constant(220), new Constant(0))).evaluator());
     }
@@ -42,9 +41,8 @@ public class ExpressionEvaluatorTest {
     }
     @Test
     public void subIntegerIntegerExpressionTest() {
-        Assert.assertEquals(4, new Operation("sub", new BinaryOperation(new Constant(2), new Constant(2))).evaluator());
-        Assert.assertEquals(4, new Operation("sub",new BinaryOperation(new Constant(2), new Constant(2))).evaluator());
-        Assert.assertEquals(20, new Operation("sub",new BinaryOperation(new Constant(5), new Constant(15))).evaluator());
+        Assert.assertEquals(0, new Operation("sub", new BinaryOperation(new Constant(2), new Constant(2))).evaluator());
+        Assert.assertEquals(-10, new Operation("sub",new BinaryOperation(new Constant(5), new Constant(15))).evaluator());
         Assert.assertEquals(220, new Operation("sub",new BinaryOperation(new Constant(220), new Constant(0))).evaluator());
     }
 }
