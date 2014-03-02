@@ -39,10 +39,30 @@ public class ExpressionEvaluatorTest {
         Assert.assertEquals(5.0, new Operation("add",new BinaryOperation(new Constant(2.2), new Constant(2.8))).evaluator());
         Assert.assertEquals(21.0, new Operation("add",new BinaryOperation(new Constant(5.4), new Constant(15.6))).evaluator());
     }
+    
     @Test
     public void subIntegerIntegerExpressionTest() {
         Assert.assertEquals(0, new Operation("sub", new BinaryOperation(new Constant(2), new Constant(2))).evaluator());
         Assert.assertEquals(-10, new Operation("sub",new BinaryOperation(new Constant(5), new Constant(15))).evaluator());
         Assert.assertEquals(220, new Operation("sub",new BinaryOperation(new Constant(220), new Constant(0))).evaluator());
+    }
+    @Test
+    public void subDoubleIntegerExpressionTest() {
+        Assert.assertEquals(0.2, new Operation("sub",new BinaryOperation(new Constant(2.2), new Constant(2))).evaluator());
+        Assert.assertEquals(-10.4, new Operation("sub",new BinaryOperation(new Constant(5.4), new Constant(15))).evaluator());
+        Assert.assertEquals(220.9, new Operation("sub",new BinaryOperation(new Constant(220.9), new Constant(0))).evaluator());
+    }
+
+    @Test
+    public void subIntegerDoubleExpressionTest() {
+        Assert.assertEquals(-0.2, new Operation("sub",new BinaryOperation(new Constant(2), new Constant(2.2))).evaluator());
+        Assert.assertEquals(10.4, new Operation("sub",new BinaryOperation(new Constant(15), new Constant(5.4))).evaluator());
+        Assert.assertEquals(-220.9, new Operation("sub",new BinaryOperation(new Constant(0), new Constant(220.9))).evaluator());
+    }
+
+    @Test
+    public void subDoubleDoubleExpressionTest() {
+        Assert.assertEquals(-0.3, new Operation("sub",new BinaryOperation(new Constant(2.2), new Constant(2.8))).evaluator());
+        Assert.assertEquals(-10.0, new Operation("sub",new BinaryOperation(new Constant(5.4), new Constant(15.6))).evaluator());
     }
 }
