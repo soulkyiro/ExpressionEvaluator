@@ -44,6 +44,27 @@ public class Factory {
                 return (int) left - (int) rigth;
             }
         });
+        dictionary.put("subIntegerDouble", new Operator() {
+
+            @Override
+            public Object calculate(Object left, Object rigth) {
+                return (int) left - (double) rigth;
+            }
+        });
+        dictionary.put("subDoubleInteger", new Operator() {
+
+            @Override
+            public Object calculate(Object left, Object rigth) {
+                return (double) left - (int) rigth;
+            }
+        });
+        dictionary.put("subDoubleDouble", new Operator() {
+
+            @Override
+            public Object calculate(Object left, Object rigth) {
+                return (double) left - (double) rigth;
+            }
+        });
     }
 
     public Object builder(String operator, Object left, Object rigth) {
