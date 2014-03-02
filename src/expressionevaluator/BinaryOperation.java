@@ -1,6 +1,6 @@
 package expressionevaluator;
 
-public abstract class BinaryOperation {
+public class BinaryOperation {
 
     private final Expression left;
     private final Expression rigth;

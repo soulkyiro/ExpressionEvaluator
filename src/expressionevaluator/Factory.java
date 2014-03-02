@@ -1,6 +1,7 @@
 package expressionevaluator;
 
 import java.util.HashMap;
+import operation.Operator;
 
 public class Factory {
 
@@ -8,21 +9,41 @@ public class Factory {
 
     public Factory() {
         dictionary = new HashMap<>();
+        dictionary.put("addIntegerInteger", new Operator() {
+
+            @Override
+            public Object calculate(Object left, Object rigth) {
+                return (int) left + (int) rigth;
+            }
+        });
+        dictionary.put("addIntegerDouble", new Operator() {
+
+            @Override
+            public Object calculate(Object left, Object rigth) {
+                return (int) left + (double) rigth;
+            }
+        });
+        dictionary.put("addDoubleInteger", new Operator() {
+
+            @Override
+            public Object calculate(Object left, Object rigth) {
+                return (double) left + (int) rigth;
+            }
+        });
+        dictionary.put("addDoubleDouble", new Operator() {
+
+            @Override
+            public Object calculate(Object left, Object rigth) {
+                return (double) left + (double) rigth;
+            }
+        });
     }
 
-    public Object builder(Object numbers) {
-        BinaryOperation operation = (BinaryOperation) numbers;
-        if (operation.getLeft().evaluator() instanceof Integer) {
-            if (operation.getRigth().evaluator() instanceof Integer) {
-                return (Integer) operation.getLeft().evaluator() + (Integer) operation.getRigth().evaluator();
-            } else {
-                return (Integer) operation.getLeft().evaluator() + (Double) operation.getRigth().evaluator();
-            }
-        } else if (operation.getRigth().evaluator() instanceof Integer) {
-            return (Double) operation.getLeft().evaluator() + (Integer) operation.getRigth().evaluator();
-        } else {
-            return (Double) operation.getLeft().evaluator() + (Double) operation.getRigth().evaluator();
-        }
+    public Object builder(String operator, Object left, Object rigth) {
+        return dictionary.get(operator+getNameType(left)+getNameType(rigth));
+    }
+    private String getNameType(Object number){
+        return number.getClass().getSimpleName();
     }
 
 }
